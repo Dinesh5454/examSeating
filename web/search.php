@@ -125,39 +125,42 @@ $mini=0;
 }
 
 				$flagForSearch = 0;
-				      //SEARCH PART
+			
+			
+			
+			//SEARCH PART
 				      $searchkey = $_REQUEST['srno'];
 				for($m=0;$m<count($aaa);$m++)
 				{
 					$LOC=0;
+					echo "<center>CLASS :". $aaa[$m]->rname()."<br>";
+					echo "<table border=0 width = 1200>";
+				
 					for($i=0; $i<$aaa[$m]->rrowd(); $i++)
 					{
+						echo "<tr>";
 						for($j=0; $j <$aaa[$m]->rcold(); $j++)
 						{
-							$LOC=$j*$aaa[$m]->rrowd()+$i;
+							echo "<td>";
+						$LOC=$j*$aaa[$m]->rrowd()+$i;
+						echo "<table border=1 width=220> <tr>";
 							for($x=0; $x<$spt ;$x++)
-							{
+							{echo "<td width=80 height = 30>".$seathold[$m][$LOC][$x]." <br></td>";
 								if($searchkey == $seathold[$m][$LOC][$x])
 	                {
-										echo $aaa[$m]->rname()."-".$aaa[$m]->rrowd()."-".$aaa[$m]->rcold()."-".$i."-".$j."-".$x;
+																		
+				echo $aaa[$m]->rname()."-".$aaa[$m]->rrowd()."-".$aaa[$m]->rcold()."-".$i."-".$j."-".$x;
 	                  $flagForSearch++;
-	                }
-									if($flagForSearch!=0)
-				            break;
+	                }echo "</tr></table>";
+						echo "</td>";
+								
 							}
 
-							if($flagForSearch!=0)
-								break;
-						}
-
-						if($flagForSearch!=0)
-							break;
 					}
-
-					if($flagForSearch!=0)
-						break;
+					echo "</tr>";
 				}
-
+				echo "</table><br><br></center>";
+			}
 
 if($flagForSearch==0)
 	echo "NOT FOUND";
