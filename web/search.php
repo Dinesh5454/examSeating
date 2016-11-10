@@ -147,6 +147,10 @@ $mini=0;
 	                {
 																		
 				echo $aaa[$m]->rname()."-".$aaa[$m]->rrowd()."-".$aaa[$m]->rcold()."-".$i."-".$j."-".$x;
+				$foundclass=$m;
+				$pp=$i;
+				$qq=$j;
+				$rr=$x;
 	                  $flagForSearch++;
 	                }
 								
@@ -156,6 +160,32 @@ $mini=0;
 				}
 			}
 
+
+			
+			echo "<br><br><br><br>";
+			
+				echo "<center>CLASS :". $aaa[$foundclass]->rname()."<br>";
+				echo "<table border=0 width = 1200>";
+				for($i=0; $i<$aaa[$foundclass]->rrowd(); $i++)
+				{
+					echo "<tr>";
+					for($j=0; $j <$aaa[$foundclass]->rcold(); $j++)
+					{
+						echo "<td>";
+						$LOC=$j*$aaa[$foundclass]->rrowd()+$i;
+						echo "<table border=1 width=220> <tr>";
+						for($x=0; $x<$spt ;$x++)
+							echo "<td width=80 height = 30> ".$seathold[$foundclass][$LOC][$x]." <br></td>";
+						echo "</tr></table>";
+						echo "</td>";
+					}
+					echo "</tr>";
+				}
+				echo "</table><br><br></center>";
+			
+			
+						
+			
 if($flagForSearch==0)
 	echo "NOT FOUND";
 
