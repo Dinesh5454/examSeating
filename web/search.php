@@ -175,7 +175,7 @@ $mini=0;
 						$LOC=$j*$aaa[$foundclass]->rrowd()+$i;
 						echo "<table border=1 width=220> <tr>";
 						for($x=0; $x<$spt ;$x++)
-							echo "<td width=80 height = 30> ".$seathold[$foundclass][$LOC][$x]." <br></td>";
+							echo "<td width=80 height = 30 bgcolor=\"#00FF00\"> ".$seathold[$foundclass][$LOC][$x]." <br></td>";
 						echo "</tr></table>";
 						echo "</td>";
 					}
